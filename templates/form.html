@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fault Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Light gray background color */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            margin-top: 6px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #66afe9;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #ff5f5f;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff3f3f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <div class="form-group">
+                <label for="LIMIT_BAL">Limit Balance:</label>
+                <input type="text" id="LIMIT_BAL" name="LIMIT_BAL" placeholder="Enter limit balance (float)">
+            </div>
+            <div class="form-group">
+                <label for="SEX">Sex:</label>
+                <input type="text" id="SEX" name="SEX" placeholder="Enter sex (int)">
+            </div>
+            <div class="form-group">
+                <label for="EDUCATION">Education:</label>
+                <input type="text" id="EDUCATION" name="EDUCATION" placeholder="Enter education (int)">
+            </div>
+            <div class="form-group">
+                <label for="MARRIAGE">Marriage:</label>
+                <input type="text" id="MARRIAGE" name="MARRIAGE" placeholder="Enter marriage status (int)">
+            </div>
+            <div class="form-group">
+                <label for="AGE">Age:</label>
+                <input type="text" id="AGE" name="AGE" placeholder="Enter age (int)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_1">Pay 1:</label>
+                <input type="text" id="PAY_1" name="PAY_1" placeholder="Enter pay status (int)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_2">Pay 2:</label>
+                <input type="text" id="PAY_2" name="PAY_2" placeholder="Enter pay status (int)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_3">Pay 3:</label>
+                <input type="text" id="PAY_3" name="PAY_3" placeholder="Enter pay status (int)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_4">Pay 4:</label>
+                <input type="text" id="PAY_4" name="PAY_4" placeholder="Enter pay status (int)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_5">Pay 5:</label>
+                <input type="text" id="PAY_5" name="PAY_5" placeholder="Enter pay status (int)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_6">Pay 6:</label>
+                <input type="text" id="PAY_6" name="PAY_6" placeholder="Enter pay status (int)">
+            </div>
+            <div class="form-group">
+                <label for="BILL_AMT1">Bill Amount 1:</label>
+                <input type="text" id="BILL_AMT1" name="BILL_AMT1" placeholder="Enter bill amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="BILL_AMT2">Bill Amount 2:</label>
+                <input type="text" id="BILL_AMT2" name="BILL_AMT2" placeholder="Enter bill amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="BILL_AMT3">Bill Amount 3:</label>
+                <input type="text" id="BILL_AMT3" name="BILL_AMT3" placeholder="Enter bill amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="BILL_AMT4">Bill Amount 4:</label>
+                <input type="text" id="BILL_AMT4" name="BILL_AMT4" placeholder="Enter bill amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="BILL_AMT5">Bill Amount 5:</label>
+                <input type="text" id="BILL_AMT5" name="BILL_AMT5" placeholder="Enter bill amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="BILL_AMT6">Bill Amount 6:</label>
+                <input type="text" id="BILL_AMT6" name="BILL_AMT6" placeholder="Enter bill amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_AMT1">Pay Amount 1:</label>
+                <input type="text" id="PAY_AMT1" name="PAY_AMT1" placeholder="Enter pay amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_AMT2">Pay Amount 2:</label>
+                <input type="text" id="PAY_AMT2" name="PAY_AMT2" placeholder="Enter pay amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_AMT3">Pay Amount 3:</label>
+                <input type="text" id="PAY_AMT3" name="PAY_AMT3" placeholder="Enter pay amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_AMT4">Pay Amount 4:</label>
+                <input type="text" id="PAY_AMT4" name="PAY_AMT4" placeholder="Enter pay amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_AMT5">Pay Amount 5:</label>
+                <input type="text" id="PAY_AMT5" name="PAY_AMT5" placeholder="Enter pay amount (float)">
+            </div>
+            <div class="form-group">
+                <label for="PAY_AMT6">Pay Amount 6:</label>
+                <input type="text" id="PAY_AMT6" name="PAY_AMT6" placeholder="Enter pay amount (float)">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+
+</html>
