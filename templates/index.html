@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detector</title>
+    <style>
+        /* Reset and base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #1f1f1f;
+            padding: 15px 30px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #00bcd4;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        /* Container styles */
+        .container {
+            text-align: center;
+            background-color: #1f1f1f;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        /* Section styles */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            margin: 20px auto;
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 800px;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #00bcd4;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #bbbbbb;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #bbbbbb;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #dddddd;
+            margin: 20px auto;
+            padding: 20px;
+            background: #333333;
+            border-left: 5px solid #00bcd4;
+            border-radius: 10px;
+            max-width: 700px;
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #00bcd4;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #0097a7;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            background-color: #00796b;
+            transform: translateY(0);
+        }
+
+        /* Additional styling for responsiveness */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            .container {
+                padding: 20px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Credit Card Fraud Detector</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>Credit Card Fraud Detector</h1>
+        <a href="{{ url_for('predict_datapoint') }}" class="btn">Get Started</a>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Welcome to the Credit Card Fraud Detector. Our mission is to provide a reliable and easy-to-use tool to help individuals and organizations detect fraudulent transactions. Using advanced machine learning algorithms, we aim to make fraud detection accessible and effective.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Features</h2>
+        <p>Our detector offers a range of features designed to provide accurate and useful results:</p>
+        <ul>
+            <li>High accuracy predictions</li>
+            <li>User-friendly interface</li>
+            <li>Detailed reports</li>
+            <li>24/7 customer support</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Testimonials</h2>
+        <p>Here's what our users are saying:</p>
+        <blockquote>"This tool is fantastic! It helped us catch fraudulent transactions and save money." - Jane Doe</blockquote>
+        <blockquote>"Highly recommend this detector. The interface is easy to use and the results are very accurate." - John Smith</blockquote>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need support, feel free to reach out to us:</p>
+        <p>Email: support@frauddetector.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </section>
+
+    <script>
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const scrollPosition = window.scrollY + window.innerHeight;
+
+            sections.forEach(section => {
+                if (scrollPosition > section.offsetTop + section.offsetHeight / 4) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -4,50 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>delivery predictor </title>
+    <title>Credit Card Fraud Prediction</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #be3b3b;
+            background-color: #000; /* Black background */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            color: #fff;
         }
 
         .container {
-            max-width: 400px;
-            margin: auto;
-            background-color: #fff;
+            max-width: 500px;
+            width: 100%;
+            background-color: #121212; /* Slightly lighter black background for container */
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
             font-size: 36px;
-            color: #ff5f5f;
+            color: #1e90ff; /* Bright blue color */
             margin-bottom: 20px;
         }
 
         p {
-            text-align: center;
             font-size: 18px;
-            color: #333;
+            color: #bbb; /* Light gray color for text */
             margin-bottom: 20px;
         }
 
         .cta {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
         }
 
         .cta a {
-            background-color: #4CAF50;
+            background-color: #1e90ff; /* Bright blue color */
             color: #fff;
             border: none;
             padding: 12px 20px;
@@ -55,11 +54,17 @@
             cursor: pointer;
             font-size: 16px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .cta a:hover {
-            background-color: #45a049;
+            background-color: #4682b4; /* Slightly darker blue on hover */
+            transform: scale(1.05);
+        }
+
+        .cta a:focus {
+            outline: 2px solid #1e90ff;
+            outline-offset: 4px;
         }
     </style>
 </head>
